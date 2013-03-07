@@ -1,0 +1,25 @@
+USE [GMI]
+GO
+
+/****** Object:  Table [dbo].[Authentication]    Script Date: 03/06/2013 18:31:50 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Authentication](
+  [user_ID] [int] NOT NULL,
+	[username] [nvarchar](50) NOT NULL,
+	[password] [nvarchar](max) NOT NULL,
+	[first_name] [nvarchar](20) NOT NULL,
+	[last_name] [nvarchar](25) NOT NULL,
+	[middle_name] [nvarchar](25) NULL,
+	[user_active] [bit] NOT NULL,
+	[admin] [bit] NOT NULL,
+	[new_user] [bit] NOT NULL,
+	[date_created] [timestamp] NOT NULL,
+	[dynamic_cols] blob 
+) ON [PRIMARY]
+
+GO
