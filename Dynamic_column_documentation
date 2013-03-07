@@ -1,0 +1,10 @@
+Dynamic Columns
+---------------
+Dynamic columns allows one to store different sets of columns for each row in a table. It works by storing a set of columns in a blob and having a small set of functions to manipulate it.
+
+In order to insert a dynamic row into the dynamic column we will write the following 
+
+insert into Authentication values('1', 'snaqvi', 'jxjwhwif132', 'saba', 'naqvi', '', '1', '1', '1', COLUMN_CREATE('position', 'manager', 'shift', 'morning', 'department', 'receiving'));
+
+
+As you can see we added a column name and then its value, i.e, position = manager, shift = morning, department = receiving
