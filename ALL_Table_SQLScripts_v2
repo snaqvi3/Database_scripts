@@ -1,0 +1,125 @@
+Authentication Table
+====================
+CREATE TABLE [dbo].[tblAuthentication]
+(
+  UserID int NOT NULL, 
+	User_Name nvarchar(50) NOT NULL,
+	Password  nvarchar(max) NOT NULL,
+	User_Active bit,
+	Counter int,
+	New_User bit,
+	Date_Created timestamp,
+	Date_Updated timestamp
+)
+
+Users Table
+===========
+CREATE TABLE [dbo].[tblUsers]
+(
+	UserID int NOT NULL, 
+	CompanyID int NOT NULL,
+	First_Name nvarchar(50),
+	Last_Name nvarchar(50),
+	Middle_Name nvarchar(50),
+	Phone_number int,
+	Email_Address nvarchar(80),
+	Address nvarchar(80),
+	City nvarchar(50),
+	State nvarchar(50),
+	Country nvarchar(50),
+	Department nvarchar(50),
+	Date_Created timestamp,
+	Date_Updated timestamp
+)
+
+Users__Groups Bridge Table
+=========================
+CREATE TABLE [dbo].[tblUsersGroups]
+(
+	UserID int NOT NULL, 
+	GroupID int NOT NULL,
+)
+
+Groups Table
+============
+CREATE TABLE [dbo].[tblGroups]
+(
+	GroupID int NOT NULL, 
+	CompanyID int NOT NULL,
+	Group_Name nvarchar(50) NOT NULL,
+	Date_Created timestamp,
+	Date_Updated timestamp
+)
+
+CheckList_Groups Bridge Table
+=============================
+CREATE TABLE [dbo].[tblChecklistGroups]
+(
+	ChecklistID int NOT NULL, 
+	GroupID int NOT NULL,
+)
+
+Checklist Table
+===============
+CREATE TABLE [dbo].[tblChecklists]
+(
+	ChecklistID int NOT NULL, 
+	Checklist_Name nvarchar(50) NOT NULL,
+	Checklist_Details nvarchar(max),
+	Date_Created timestamp,
+	Date_Updated timestamp
+)
+
+Company Table
+=============
+CREATE TABLE [dbo].[tblCompany]
+(
+	CompanyID int NOT NULL,
+	IndustryID int NOT NULL,
+	UserID int NOT NULL, 
+	Company_Name nvarchar(50) NOT NULL,
+	Company_Details nvarchar(max),
+	Date_Created timestamp,
+	Date_Updated timestamp
+)
+
+Industry Table
+==============
+CREATE TABLE [dbo].[tblIndustry]
+(
+	IndustryID int NOT NULL,
+	CompanyID int NOT NULL, 
+	Industry_Details nvarchar(max),
+	Industry_category  nvarchar(max),
+	Date_Created timestamp,
+	Date_Updated timestamp
+)
+
+CompanyDefaults Table
+=====================
+CREATE TABLE [dbo].[tblCompanyDefaults]
+(
+	DefaultID int NOT NULL,
+	CompanyID int NOT NULL, 
+	Default_Details nvarchar(max),
+	Default_value  nvarchar(max) NOT NULL,
+	TempGroup_TimeOut DateTime NOT NULL,
+	Login_Attempts_Max int NOT NULL,
+	Other_Permissions nvarchar, 
+	Date_Created timestamp,
+	Date_Updated timestamp
+)
+
+SaasDefaults Table
+==================
+CREATE TABLE [dbo].[tblSaasDefaults]
+(
+	DefaultID int NOT NULL, 
+	Default_Details nvarchar (max),
+	Default_value  nvarchar (max) NOT NULL,
+	TempGroup_TimeOut DateTime NOT NULL,
+	Login_Attempts_Max int NOT NULL,
+	Other_Permissions nvarchar, 
+	Date_Created timestamp,
+	Date_Updated timestamp
+)
